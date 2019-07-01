@@ -130,6 +130,7 @@ class ViewController: NSViewController, MKMapViewDelegate, NSTableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        loadDevice()
         // Hide side box
         sideBoxLeadingConstraint.constant = -211
 
@@ -352,12 +353,10 @@ class ViewController: NSViewController, MKMapViewDelegate, NSTableViewDataSource
     }
     
     func loadDevice() -> Bool {
-        if device != nil {
-            return true
-        }
+        guard let device = Device.findConnectedDevice() else { return false }
+        self.device = device
         
-        self.device = Device.findConnectedDevice()
-        
+        device.mountDI()
         if self.device != nil {
             return true
         }
