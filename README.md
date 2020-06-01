@@ -55,6 +55,24 @@ This app using [idevicelocation](https://github.com/JonGabilondoAngulo/idevicelo
 
   - Tap Reset button.
 
+## Install macos app to other devices without xCode
+
+- Export the project out an macos app <br>
+- Copy file LocationSimulator.app to other devices <br>
+```
+run command: *brew install libimobiledevice --HEAD*
+download as zip: https://github.com/JonGabilondoAngulo/idevicelocation
+unzip, terminal navigates to there, then run following commands:
+. `ln -s /usr/local/Cellar/openssl/${OPENSSL_VERSION}/lib/pkgconfig/* /usr/local/lib/pkgconfig/`, change OPENSSL_VERSION to be your respective version
+. `./autogen.sh`
+. `make`
+. `sudo make install`
+
+disable Gatekeeper: https://techsviewer.com/allow-installation-of-apps-from-anywhere-in-macos-mojave/
+Open LocationSimulator.
+
+open downloaded app, if encountering error: `is damaged and can't be opened. You should move it to the Trash` -> http://osxdaily.com/2019/02/13/fix-app-damaged-cant-be-opened-trash-error-mac/
+```
 
 ## Acknowledgements
 
